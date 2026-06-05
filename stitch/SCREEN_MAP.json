@@ -1,0 +1,20 @@
+[
+  {
+    "screenId": "45c9cafaa89a4049894f706cac956658",
+    "name": "Gameplay - RelayPaddle Lite",
+    "type": "form",
+    "description": "Gameplay - RelayPaddle Lite screen",
+    "surfaceIds": [
+      "SURF_GAMEPLAY"
+    ]
+  },
+  {
+    "screenId": "ebff0540626944bd8d67288c46c335b8",
+    "name": "Game Settings - RelayPaddle Lite",
+    "type": "form",
+    "description": "Game Settings - RelayPaddle Lite screen",
+    "surfaceIds": [
+      "SURF_GAME_SETTINGS"
+    ]
+  }
+]

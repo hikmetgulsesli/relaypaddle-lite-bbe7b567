@@ -1,0 +1,24 @@
+[
+  {
+    "screenId": "45c9cafaa89a4049894f706cac956658",
+    "title": "Gameplay - RelayPaddle Lite",
+    "htmlFile": "45c9cafaa89a4049894f706cac956658.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2Y2YTJjMmVjNWI3ZDRiY2M5YTFlYjA3MWE4NDcxY2Y2EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMzY1MjI0OTA0OTY2NDg4MDY1&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/relaypaddle-lite-bbe7b567/stitch/45c9cafaa89a4049894f706cac956658.html",
+    "surfaceIds": [
+      "SURF_GAMEPLAY"
+    ]
+  },
+  {
+    "screenId": "ebff0540626944bd8d67288c46c335b8",
+    "title": "Game Settings - RelayPaddle Lite",
+    "htmlFile": "ebff0540626944bd8d67288c46c335b8.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzBmZjUwOTZjMTdmMDQ0ZGNhYWFmNmYzMjRhMTBjNWY3EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMzY1MjI0OTA0OTY2NDg4MDY1&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/relaypaddle-lite-bbe7b567/stitch/ebff0540626944bd8d67288c46c335b8.html",
+    "surfaceIds": [
+      "SURF_GAME_SETTINGS"
+    ]
+  }
+]

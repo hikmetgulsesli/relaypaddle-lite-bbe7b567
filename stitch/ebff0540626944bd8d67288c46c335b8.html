@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RelayPaddle Lite - Game Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#e2e2e2",
+                        "on-secondary": "#5e0053",
+                        "surface": "#121414",
+                        "surface-container-lowest": "#0c0f0f",
+                        "outline": "#849495",
+                        "on-secondary-container": "#520049",
+                        "on-primary-container": "#006a71",
+                        "inverse-on-surface": "#2f3131",
+                        "background": "#121414",
+                        "on-surface-variant": "#b9cacb",
+                        "tertiary": "#f7f6ff",
+                        "tertiary-fixed": "#dfe2ef",
+                        "surface-container": "#1e2020",
+                        "on-primary-fixed": "#002022",
+                        "surface-container-highest": "#333535",
+                        "surface-dim": "#121414",
+                        "on-tertiary-fixed": "#181b25",
+                        "surface-container-low": "#1a1c1c",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#00363a",
+                        "on-error": "#690005",
+                        "on-tertiary": "#2c303a",
+                        "inverse-primary": "#00696f",
+                        "on-secondary-fixed": "#3a0033",
+                        "tertiary-fixed-dim": "#c3c6d3",
+                        "primary-fixed": "#74f5ff",
+                        "surface-tint": "#00dbe7",
+                        "primary-fixed-dim": "#00dbe7",
+                        "surface-container-high": "#282a2b",
+                        "inverse-surface": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#434751",
+                        "secondary": "#fface8",
+                        "primary": "#e1fdff",
+                        "surface-variant": "#333535",
+                        "on-tertiary-container": "#5c5f6b",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#004f54",
+                        "secondary-fixed-dim": "#fface8",
+                        "secondary-fixed": "#ffd7f0",
+                        "secondary-container": "#ff24e4",
+                        "surface-bright": "#37393a",
+                        "outline-variant": "#3a494b",
+                        "tertiary-container": "#d7dae8",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#840076",
+                        "on-background": "#e2e2e2",
+                        "primary-container": "#00f2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "margin-safe": "16px",
+                        "hud-padding": "8px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "timer-md": ["Space Mono"],
+                        "display-lg": ["Inter"],
+                        "body-base": ["Inter"],
+                        "display-mobile": ["Inter"],
+                        "label-caps": ["Space Mono"],
+                        "score-xl": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "timer-md": ["18px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "body-base": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "score-xl": ["40px", {"lineHeight": "40px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Custom Input Range Styling for Retro Vibe */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 12px;
+            background: #00dbe7;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 219, 231, 0.5);
+            margin-top: -10px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #3a494b;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        
+        /* Checkbox styling */
+        .retro-checkbox {
+            appearance: none;
+            background-color: transparent;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #849495;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .retro-checkbox::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #00dbe7;
+            background-color: #00dbe7;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+        
+        .retro-checkbox:checked::before {
+            transform: scale(1);
+        }
+        
+        .retro-checkbox:checked {
+            border-color: #00dbe7;
+            box-shadow: 0 0 8px rgba(0, 219, 231, 0.4);
+        }
+
+        /* Modal Glow */
+        .modal-glow {
+            box-shadow: 0 0 40px rgba(255, 172, 232, 0.15), inset 0 0 20px rgba(0, 219, 231, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex items-center justify-center relative overflow-hidden font-body-base">
+<!-- Faux Gameplay Background (Darkened) -->
+<div class="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-20 pointer-events-none" data-alt="A dark, abstract digital landscape resembling a classic 80s arcade grid stretching into the distance. Bright, thin neon cyan and magenta lines form a perspective grid on a deep navy black background. The scene is illuminated by glowing digital artifacts and light trails, creating a sense of high-speed motion and retro-futuristic virtual reality. The overall aesthetic is highly technical, moody, and deeply saturated with vivid modern retro colors."></div>
+<div class="absolute inset-0 z-0 bg-surface/80 backdrop-blur-sm pointer-events-none"></div>
+<!-- Main Settings Modal (Level 3 Elevation) -->
+<div class="z-10 w-full max-w-lg mx-margin-safe bg-surface-container-low/90 backdrop-blur-xl border border-secondary/30 rounded-xl modal-glow flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.8)] relative overflow-hidden">
+<!-- Header -->
+<div class="flex justify-between items-center p-6 border-b border-outline-variant/30 relative">
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight drop-shadow-[0_0_8px_rgba(0,219,231,0.5)]">GAME SETTINGS</h2>
+<button aria-label="Close Settings" class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<!-- Decorative Accent Line -->
+<div class="absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-primary-container via-secondary to-transparent w-full opacity-50"></div>
+</div>
+<!-- Scrollable Content Area -->
+<div class="p-6 space-y-8 overflow-y-auto max-h-[614px] custom-scrollbar">
+<!-- Difficulty Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-timer-md text-timer-md text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">speed</span>
+                        Difficulty
+                    </h3>
+<span class="font-label-caps text-label-caps text-secondary px-2 py-1 bg-secondary/10 rounded border border-secondary/20">NORMAL</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-3 px-4 bg-surface border border-outline-variant text-on-surface-variant hover:border-primary/50 hover:text-primary transition-all font-label-caps text-label-caps uppercase text-center focus:outline-none">
+                        EASY
+                    </button>
+<button class="py-3 px-4 bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(0,219,231,0.2)] font-label-caps text-label-caps uppercase text-center focus:outline-none relative overflow-hidden group">
+                        NORMAL
+                        <div class="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
+</button>
+<button class="py-3 px-4 bg-surface border border-outline-variant text-on-surface-variant hover:border-secondary/50 hover:text-secondary transition-all font-label-caps text-label-caps uppercase text-center focus:outline-none">
+                        HARD
+                    </button>
+</div>
+</section>
+<!-- Speed Multiplier Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-timer-md text-timer-md text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">fast_forward</span>
+                        Speed Multiplier
+                    </h3>
+<span class="font-timer-md text-timer-md text-primary drop-shadow-[0_0_5px_rgba(0,219,231,0.5)]">1.5x</span>
+</div>
+<div class="pt-2 pb-4">
+<input class="w-full" max="3" min="1" step="0.1" type="range" value="1.5"/>
+<div class="flex justify-between mt-2 font-label-caps text-label-caps text-outline">
+<span>1.0x</span>
+<span>2.0x</span>
+<span>3.0x</span>
+</div>
+</div>
+</section>
+<!-- Audio & Visuals Toggles -->
+<section class="space-y-4">
+<h3 class="font-timer-md text-timer-md text-on-surface uppercase tracking-wider flex items-center gap-2 pb-2 border-b border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-xl">tune</span>
+                    Audio &amp; Visuals
+                </h3>
+<div class="space-y-3">
+<label class="flex items-center justify-between p-3 bg-surface border border-outline-variant/30 hover:border-outline-variant/80 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">music_note</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Background Music</span>
+</div>
+<input checked="" class="retro-checkbox" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 bg-surface border border-outline-variant/30 hover:border-outline-variant/80 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">volume_up</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Sound Effects</span>
+</div>
+<input checked="" class="retro-checkbox" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 bg-surface border border-outline-variant/30 hover:border-outline-variant/80 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">blur_on</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Scanline CRT Effect</span>
+</div>
+<input class="retro-checkbox" type="checkbox"/>
+</label>
+</div>
+</section>
+<!-- Input Help Section (Glassmorphic Card) -->
+<section class="bg-surface-container/50 border border-outline-variant/20 p-4 rounded backdrop-blur-md relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-secondary/10 rounded-full blur-xl pointer-events-none"></div>
+<h3 class="font-timer-md text-timer-md text-secondary uppercase tracking-wider mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">keyboard</span>
+                    Input Diagnostics
+                </h3>
+<div class="grid grid-cols-2 gap-x-6 gap-y-4">
+<!-- Keyboard Controls -->
+<div class="space-y-3">
+<h4 class="font-label-caps text-label-caps text-outline uppercase border-b border-outline-variant/30 pb-1 mb-2">KEYBOARD</h4>
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Move Paddle</span>
+<div class="flex gap-1">
+<kbd class="px-2 py-1 bg-surface border border-outline-variant rounded font-timer-md text-xs text-primary shadow-[0_2px_0_rgba(132,148,149,0.5)]">W</kbd>
+<kbd class="px-2 py-1 bg-surface border border-outline-variant rounded font-timer-md text-xs text-primary shadow-[0_2px_0_rgba(132,148,149,0.5)]">S</kbd>
+</div>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Serve / Action</span>
+<kbd class="px-4 py-1 bg-surface border border-outline-variant rounded font-timer-md text-xs text-primary shadow-[0_2px_0_rgba(132,148,149,0.5)]">SPACE</kbd>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Restart</span>
+<kbd class="px-2 py-1 bg-surface border border-outline-variant rounded font-timer-md text-xs text-primary shadow-[0_2px_0_rgba(132,148,149,0.5)]">R</kbd>
+</div>
+</div>
+<!-- Mouse Controls -->
+<div class="space-y-3">
+<h4 class="font-label-caps text-label-caps text-outline uppercase border-b border-outline-variant/30 pb-1 mb-2">MOUSE</h4>
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Move Paddle</span>
+<span class="font-timer-md text-xs text-secondary bg-surface px-2 py-1 border border-outline-variant rounded shadow-[0_2px_0_rgba(132,148,149,0.5)]">Y-Axis Drag</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Serve / Action</span>
+<span class="font-timer-md text-xs text-secondary bg-surface px-2 py-1 border border-outline-variant rounded shadow-[0_2px_0_rgba(132,148,149,0.5)]">Left Click</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<div class="p-6 border-t border-outline-variant/30 bg-surface-container-lowest/50 flex items-center justify-between gap-4 mt-auto">
+<button class="font-label-caps text-label-caps uppercase text-error hover:text-error-container transition-colors flex items-center gap-2 group">
+<span class="material-symbols-outlined text-lg group-hover:rotate-180 transition-transform duration-300">refresh</span>
+                Reset Defaults
+            </button>
+<div class="flex gap-3">
+<button class="px-6 py-3 font-label-caps text-label-caps uppercase text-on-surface border border-outline-variant hover:bg-surface-variant transition-colors focus:outline-none">
+                    Cancel
+                </button>
+<button class="px-6 py-3 font-label-caps text-label-caps uppercase bg-primary text-on-primary border-2 border-primary hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(0,219,231,0.6)] transition-all focus:outline-none flex items-center gap-2 font-bold group">
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">save</span>
+                    Apply &amp; Return
+                </button>
+</div>
+</div>
+</div>
+</body></html>

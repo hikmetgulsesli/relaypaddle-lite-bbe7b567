@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RelayPaddle Lite - Gameplay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Space+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#e2e2e2",
+                        "on-secondary": "#5e0053",
+                        "surface": "#121414",
+                        "surface-container-lowest": "#0c0f0f",
+                        "outline": "#849495",
+                        "on-secondary-container": "#520049",
+                        "on-primary-container": "#006a71",
+                        "inverse-on-surface": "#2f3131",
+                        "background": "#121414",
+                        "on-surface-variant": "#b9cacb",
+                        "tertiary": "#f7f6ff",
+                        "tertiary-fixed": "#dfe2ef",
+                        "surface-container": "#1e2020",
+                        "on-primary-fixed": "#002022",
+                        "surface-container-highest": "#333535",
+                        "surface-dim": "#121414",
+                        "on-tertiary-fixed": "#181b25",
+                        "surface-container-low": "#1a1c1c",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#00363a",
+                        "on-error": "#690005",
+                        "on-tertiary": "#2c303a",
+                        "inverse-primary": "#00696f",
+                        "on-secondary-fixed": "#3a0033",
+                        "tertiary-fixed-dim": "#c3c6d3",
+                        "primary-fixed": "#74f5ff",
+                        "surface-tint": "#00dbe7",
+                        "primary-fixed-dim": "#00dbe7",
+                        "surface-container-high": "#282a2b",
+                        "inverse-surface": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#434751",
+                        "secondary": "#fface8",
+                        "primary": "#e1fdff",
+                        "surface-variant": "#333535",
+                        "on-tertiary-container": "#5c5f6b",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#004f54",
+                        "secondary-fixed-dim": "#fface8",
+                        "secondary-fixed": "#ffd7f0",
+                        "secondary-container": "#ff24e4",
+                        "surface-bright": "#37393a",
+                        "outline-variant": "#3a494b",
+                        "tertiary-container": "#d7dae8",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#840076",
+                        "on-background": "#e2e2e2",
+                        "primary-container": "#00f2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "margin-safe": "16px",
+                        "hud-padding": "8px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "timer-md": ["Space Mono"],
+                        "display-lg": ["Inter"],
+                        "body-base": ["Inter"],
+                        "display-mobile": ["Inter"],
+                        "label-caps": ["Space Mono"],
+                        "score-xl": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "timer-md": ["18px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "body-base": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "fontWeight": "700" }],
+                        "score-xl": ["40px", { "lineHeight": "40px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0c0f0f; color: #e2e2e2; overflow: hidden; margin: 0; padding: 0; }
+        .glow-border { box-shadow: 0 0 10px #00dbe7, inset 0 0 10px #00dbe7; border: 2px solid #00dbe7; }
+        .glass-hud { background: rgba(18, 20, 20, 0.2); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .paddle { width: 12px; height: 100px; background-color: #00dbe7; box-shadow: 0 0 15px #00dbe7; border-radius: 4px; position: absolute; }
+        .orb { width: 16px; height: 16px; background-color: #fface8; box-shadow: 0 0 20px #fface8; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .pulse-magenta { animation: pulse-mag 1.5s infinite; }
+        @keyframes pulse-mag { 0% { box-shadow: 0 0 5px #fface8; } 50% { box-shadow: 0 0 20px #fface8; } 100% { box-shadow: 0 0 5px #fface8; } }
+        .combo-fill { background-color: #fface8; width: 100%; height: 75%; position: absolute; bottom: 0; left: 0; transition: height 0.2s ease-out; }
+        .combo-meter { position: relative; width: 12px; height: 150px; background: rgba(0,0,0,0.5); border: 1px solid #fface8; border-radius: 4px; overflow: hidden; }
+        .start-btn:hover { box-shadow: 0 0 20px #00dbe7; background-color: #74f5ff; }
+    </style>
+</head>
+<body class="bg-surface-container-lowest h-screen w-screen flex flex-col font-body-base relative">
+<!-- Top Navigation Overlay -->
+<nav class="absolute top-0 w-full z-50 flex justify-between items-center px-margin-safe py-hud-padding glass-hud border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="font-display-mobile text-display-mobile font-black text-primary drop-shadow-[0_0_10px_#00dbe7] tracking-tighter uppercase">
+            RELAYPADDLE LITE
+        </div>
+<div class="flex gap-4 items-center">
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 hover:bg-primary/10 rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 hover:bg-primary/10 rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+</button>
+</div>
+</nav>
+<!-- Main Playfield -->
+<main class="flex-grow flex items-center justify-center p-margin-safe relative mt-[80px] md:mt-0 md:pt-24 z-10">
+<div class="relative w-full max-w-[1200px] h-[716px] md:h-[819px] bg-surface rounded-lg glow-border overflow-hidden">
+<!-- Midline -->
+<div class="absolute left-1/2 top-0 bottom-0 w-[2px] bg-outline-variant/30 transform -translate-x-1/2 border-dashed border-l-2"></div>
+<!-- Paddles -->
+<div class="paddle left-4 top-1/3"></div>
+<div class="paddle right-4 bottom-1/3"></div>
+<!-- Signal Orb -->
+<div class="orb"></div>
+<!-- Start Game Overlay -->
+<div class="absolute inset-0 bg-surface/80 backdrop-blur-sm flex flex-col items-center justify-center z-20" id="start-overlay">
+<button class="start-btn bg-surface-tint text-on-primary font-headline-md text-headline-md px-8 py-4 rounded-lg shadow-[0_0_10px_#00dbe7] transition-all duration-200 uppercase tracking-widest border-2 border-primary-container">
+                    Insert Coin to Play
+                </button>
+<div class="mt-8 text-on-surface-variant font-label-caps text-label-caps tracking-widest flex flex-col items-center gap-2">
+<p>[SPACE] = PAUSE</p>
+<p>[R] = RESTART</p>
+</div>
+</div>
+<!-- Game Over Flash (Hidden by default) -->
+<div class="absolute inset-0 bg-error/20 hidden z-30 pointer-events-none" id="error-flash"></div>
+</div>
+<!-- HUD Elements (Floating outside playfield on desktop, overlaid on mobile) -->
+<div class="absolute top-24 md:top-32 left-margin-safe glass-hud px-4 py-2 rounded-lg flex flex-col items-start shadow-lg">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-1">Live Score</span>
+<span class="font-score-xl text-score-xl text-primary drop-shadow-[0_0_8px_#00dbe7]">042,910</span>
+</div>
+<div class="absolute top-24 md:top-32 right-margin-safe glass-hud px-4 py-2 rounded-lg flex flex-col items-end shadow-lg">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-1">Level</span>
+<span class="font-timer-md text-timer-md text-secondary drop-shadow-[0_0_5px_#fface8]">04: NEON DRIFT</span>
+</div>
+<div class="absolute bottom-24 md:bottom-1/2 md:translate-y-1/2 right-margin-safe md:right-8 flex flex-col items-center gap-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase pulse-magenta">x4 Combo</span>
+<div class="combo-meter">
+<div class="combo-fill shadow-[0_0_10px_#fface8]"></div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-lowest/40 backdrop-blur-lg border-t border-outline-variant/20 rounded-t-xl shadow-[0_-4px_20px_rgba(255,172,232,0.15)]">
+<button class="flex flex-col items-center justify-center bg-secondary/20 text-secondary border-t-2 border-secondary px-4 py-2 h-full scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">videogame_asset</span>
+<span class="font-label-caps text-label-caps">Arcade</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 px-4 py-2 h-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined mb-1">emoji_events</span>
+<span class="font-label-caps text-label-caps">Ranks</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 px-4 py-2 h-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined mb-1">style</span>
+<span class="font-label-caps text-label-caps">Gear</span>
+</button>
+</nav>
+<script>
+        // Simple interaction to dismiss the start screen for demo purposes
+        document.querySelector('.start-btn').addEventListener('click', function() {
+            document.getElementById('start-overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('start-overlay').style.display = 'none';
+            }, 300);
+        });
+    </script>
+</body></html>
