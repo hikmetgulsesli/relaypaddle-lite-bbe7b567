@@ -7,7 +7,7 @@
 // 3. Wire interactive controls through the typed actions prop
 // 4. Replace placeholder data with props/state
 
-import { Gamepad2, Palette, Pause, Settings, Trophy } from "lucide-react";
+import { Joystick, Medal, Palette, Pause, Settings } from "lucide-react";
 
 
 export type GameplayRelaypaddleLiteActionId = "pause-1" | "settings-2" | "insert-coin-to-play-3" | "arcade-4" | "ranks-5" | "gear-6";
@@ -24,9 +24,15 @@ export function GameplayRelaypaddleLite({ actions, runtime }: GameplayRelaypaddl
     <>
       {/* Top Navigation Overlay */}
       <nav className="absolute top-0 w-full z-50 flex justify-between items-center px-margin-safe py-hud-padding glass-hud border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-      <div className="font-display-mobile text-display-mobile font-black text-primary drop-shadow-[0_0_10px_#00dbe7] tracking-tighter uppercase">
-                  RELAYPADDLE LITE
-              </div>
+      <button
+        className="font-display-mobile text-display-mobile font-black text-primary drop-shadow-[0_0_10px_#00dbe7] tracking-tighter uppercase bg-transparent border-none cursor-pointer"
+        type="button"
+        data-action-id="insert-coin-to-play-3"
+        onClick={actions?.["insert-coin-to-play-3"]}
+        aria-label="RelayPaddle Lite"
+      >
+        RELAYPADDLE LITE
+      </button>
       <div className="flex gap-4 items-center">
       <button className="text-on-surface-variant hover:text-primary transition-colors duration-200 hover:bg-primary/10 rounded-full p-2 flex items-center justify-center" type="button" aria-label="Pause" data-action-id="pause-1" onClick={actions?.["pause-1"]}>
       <Pause  style={{fontVariationSettings: "'FILL' 1"}} aria-hidden={true} focusable="false" />
@@ -78,11 +84,11 @@ export function GameplayRelaypaddleLite({ actions, runtime }: GameplayRelaypaddl
       {/* Bottom Navigation (Mobile Only) */}
       <nav className="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-lowest/40 backdrop-blur-lg border-t border-outline-variant/20 rounded-t-xl shadow-[0_-4px_20px_rgba(255,172,232,0.15)]">
       <button className="flex flex-col items-center justify-center bg-secondary/20 text-secondary border-t-2 border-secondary px-4 py-2 h-full scale-90 transition-transform" type="button" data-action-id="arcade-4" onClick={actions?.["arcade-4"]}>
-      <Gamepad2  style={{fontVariationSettings: "'FILL' 1"}} className="mb-1" aria-hidden={true} focusable="false" />
+      <Joystick className="mb-1" aria-hidden={true} focusable="false" />
       <span className="font-label-caps text-label-caps">Arcade</span>
       </button>
       <button className="flex flex-col items-center justify-center text-on-surface-variant/60 px-4 py-2 h-full hover:bg-white/5 transition-colors" type="button" data-action-id="ranks-5" onClick={actions?.["ranks-5"]}>
-      <Trophy className="mb-1" aria-hidden={true} focusable="false" />
+      <Medal className="mb-1" aria-hidden={true} focusable="false" />
       <span className="font-label-caps text-label-caps">Ranks</span>
       </button>
       <button className="flex flex-col items-center justify-center text-on-surface-variant/60 px-4 py-2 h-full hover:bg-white/5 transition-colors" type="button" data-action-id="gear-6" onClick={actions?.["gear-6"]}>
