@@ -1,0 +1,102 @@
+[
+  {
+    "screenId": "45c9cafaa89a4049894f706cac956658",
+    "title": "Gameplay - RelayPaddle Lite",
+    "componentName": "GameplayRelaypaddleLite",
+    "file": "src/screens/GameplayRelaypaddleLite.tsx",
+    "buttons": 6,
+    "inputs": 0,
+    "links": 0,
+    "actions": [
+      {
+        "id": "pause-1",
+        "kind": "button",
+        "label": "Pause",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "button",
+        "label": "Settings",
+        "index": 1
+      },
+      {
+        "id": "insert-coin-to-play-3",
+        "kind": "button",
+        "label": "Insert Coin to Play",
+        "index": 2
+      },
+      {
+        "id": "arcade-4",
+        "kind": "button",
+        "label": "Arcade",
+        "index": 3
+      },
+      {
+        "id": "ranks-5",
+        "kind": "button",
+        "label": "Ranks",
+        "index": 4
+      },
+      {
+        "id": "gear-6",
+        "kind": "button",
+        "label": "Gear",
+        "index": 5
+      }
+    ]
+  },
+  {
+    "screenId": "ebff0540626944bd8d67288c46c335b8",
+    "title": "Game Settings - RelayPaddle Lite",
+    "componentName": "GameSettingsRelaypaddleLite",
+    "file": "src/screens/GameSettingsRelaypaddleLite.tsx",
+    "buttons": 7,
+    "inputs": 4,
+    "links": 0,
+    "actions": [
+      {
+        "id": "close-settings-1",
+        "kind": "button",
+        "label": "Close Settings",
+        "index": 0
+      },
+      {
+        "id": "easy-2",
+        "kind": "button",
+        "label": "EASY",
+        "index": 1
+      },
+      {
+        "id": "normal-3",
+        "kind": "button",
+        "label": "NORMAL",
+        "index": 2
+      },
+      {
+        "id": "hard-4",
+        "kind": "button",
+        "label": "HARD",
+        "index": 3
+      },
+      {
+        "id": "reset-defaults-5",
+        "kind": "button",
+        "label": "Reset Defaults",
+        "index": 4
+      },
+      {
+        "id": "cancel-6",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 5
+      },
+      {
+        "id": "apply-and-return-7",
+        "kind": "button",
+        "label": "Apply and Return",
+        "index": 6
+      }
+    ]
+  }
+]
