@@ -1,0 +1,211 @@
+[
+  {
+    "screenId": "45c9cafaa89a4049894f706cac956658",
+    "screenTitle": "Gameplay - RelayPaddle Lite",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 119
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 122
+      },
+      {
+        "type": "button",
+        "label": "Insert Coin to Play",
+        "line": 139
+      },
+      {
+        "type": "button",
+        "label": "Arcade",
+        "line": 168
+      },
+      {
+        "type": "button",
+        "label": "Ranks",
+        "line": 172
+      },
+      {
+        "type": "button",
+        "label": "Gear",
+        "line": 176
+      }
+    ],
+    "navigation": [],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 119
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 122
+      },
+      {
+        "type": "button",
+        "label": "Insert Coin to Play",
+        "line": 139
+      },
+      {
+        "type": "button",
+        "label": "Arcade",
+        "line": 168
+      },
+      {
+        "type": "button",
+        "label": "Ranks",
+        "line": 172
+      },
+      {
+        "type": "button",
+        "label": "Gear",
+        "line": 176
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 6,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "ebff0540626944bd8d67288c46c335b8",
+    "screenTitle": "Game Settings - RelayPaddle Lite",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "button",
+        "label": "Close Settings",
+        "line": 193
+      },
+      {
+        "type": "button",
+        "label": "EASY",
+        "line": 211
+      },
+      {
+        "type": "button",
+        "label": "NORMAL",
+        "line": 214
+      },
+      {
+        "type": "button",
+        "label": "HARD",
+        "line": 218
+      },
+      {
+        "type": "button",
+        "label": "Reset Defaults",
+        "line": 315
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 320
+      },
+      {
+        "type": "button",
+        "label": "Apply &amp; Return",
+        "line": 323
+      },
+      {
+        "type": "input",
+        "label": "range",
+        "inputType": "range",
+        "line": 233
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 253
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 260
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 267
+      }
+    ],
+    "navigation": [],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Close Settings",
+        "line": 193
+      },
+      {
+        "type": "button",
+        "label": "EASY",
+        "line": 211
+      },
+      {
+        "type": "button",
+        "label": "NORMAL",
+        "line": 214
+      },
+      {
+        "type": "button",
+        "label": "HARD",
+        "line": 218
+      },
+      {
+        "type": "button",
+        "label": "Reset Defaults",
+        "line": 315
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 320
+      },
+      {
+        "type": "button",
+        "label": "Apply &amp; Return",
+        "line": 323
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "range",
+        "inputType": "range",
+        "line": 233
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 253
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 260
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 267
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 11,
+    "requiresRouter": false,
+    "requiresDragDrop": true
+  }
+]
