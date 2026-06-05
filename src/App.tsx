@@ -3,6 +3,8 @@ import {
   useAppState,
   actions,
 } from './features/relaypaddle-lite/relaypaddle-lite.store';
+import { actSavePreferences } from './features/surf-game-settings/act_save_preferences';
+import { actReturnToGameplay } from './features/surf-game-settings/act_return_to_gameplay';
 import {
   GameplayRelaypaddleLite,
   GameSettingsRelaypaddleLite,
@@ -41,13 +43,13 @@ export default function App() {
   };
 
   const settingsActions = {
-    'close-settings-1': () => actions.setScreen('gameplay'),
-    'easy-2': () => actions.setDiff('easy'),
-    'normal-3': () => actions.setDiff('normal'),
-    'hard-4': () => actions.setDiff('hard'),
+    'close-settings-1': actReturnToGameplay,
+    'easy-2': () => actSavePreferences({ difficulty: 'easy' }),
+    'normal-3': () => actSavePreferences({ difficulty: 'normal' }),
+    'hard-4': () => actSavePreferences({ difficulty: 'hard' }),
     'reset-defaults-5': actions.resetDefaults,
-    'cancel-6': () => actions.setScreen('gameplay'),
-    'apply-and-return-7': () => actions.setScreen('gameplay'),
+    'cancel-6': actReturnToGameplay,
+    'apply-and-return-7': actReturnToGameplay,
   };
 
   return (
